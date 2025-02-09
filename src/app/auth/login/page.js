@@ -49,12 +49,13 @@ export default function LoginPage() {
         <form ref={ref} onSubmit={(e) => { handleSubmit(e); ref.current.reset() }} className="flex flex-col gap-4">
           <div>
             <Label>Email</Label>
-            <Input type="email" name="email" required />
+            <Input type="email" name="email" placeholder="Enter you Email" required />
           </div>
           <div className="relative">
             <Label>Password</Label>
             <div className="relative">
               <Input
+                placeholder="Enter you Password"
                 type={showPassword ? "text" : "password"}
                 required
                 name="password"

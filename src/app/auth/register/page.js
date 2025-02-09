@@ -45,17 +45,19 @@ export default function RegisterPage() {
       <CardContent>
         <form ref={ref} onSubmit={(e) => { handleSubmit(e); ref.current.reset() }} className="flex flex-col gap-4">
           <Label>Name</Label>
-          <Input onChange={(e) => setFormData({ ...formData, name: e.target.value })} name="name" />
+          <Input onChange={(e) => setFormData({ ...formData, name: e.target.value })} name="name" placeholder='Enter your Name' />
           <Label>Email</Label>
-          <Input onChange={(e) => setFormData({ ...formData, email: e.target.value })} name="email" />
-          {/* <Label>Password</Label>
-          <Input type="password" onChange={(e) => setFormData({ ...formData, password: e.target.value })} name="password" /> */}
+          <Input onChange={(e) => setFormData({ ...formData, email: e.target.value })} name="email"  placeholder="Enter your Email" />
+
           <div className="relative">
             <Label>Password</Label>
             <div className="relative">
               <Input
                 type={showPassword ? "text" : "password"}
                 required
+                minLength="8"
+                pattern="[A-Za-z0-9]{8,}"
+                placeholder="Enter password (min 8 characters)"
                 onChange={(e) => setFormData({ ...formData, password: e.target.value })}
                 className="pr-10"
               />
